@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.only('Learning selectors', async ({ page }) => {
   //navigate to web page
@@ -37,6 +37,12 @@ test.only('Learning selectors', async ({ page }) => {
 
   // 11 By role, regex, the i means it ignore case of words
   await page.getByRole('button', { name: /click me/i }).click();
+
+  // 12 Assert the counter
+
+  await expect(page.getByText(13)).toBeVisible();
+  // 12 example 2
+  await expect(page.locator('#counter')).toContainText('13');
 
   await page.pause();
 });

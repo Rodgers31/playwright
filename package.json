@@ -2,7 +2,10 @@
   "name": "playwright",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "npx playwright test --headed",
+    "debug": "npx playwright test --headed debug"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

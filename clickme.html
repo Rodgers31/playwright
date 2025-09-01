@@ -27,8 +27,18 @@
 </head>
 
 <body>
-  <button id="clickButton" class="button-style" data-action="incement" role="button">CLICK ME</button>
+  <button id="clickButton" class="button-style" data-action="increment" role="button">CLICK ME</button>
   <div id="counter" class="counter-style" data-counter="number">0</div>
+  <script>
+    let count = 0;
+    const button = document.getElementById('clickButton');
+    const counter = document.getElementById('counter')
+
+    button.onclick = function () {
+      count++;
+      counter.innerText = count;
+    }
+  </script>
 
 </body>
 

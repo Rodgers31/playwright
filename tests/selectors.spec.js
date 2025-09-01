@@ -15,6 +15,28 @@ test.only('Learning selectors', async ({ page }) => {
   await page.locator('[data-action="increment"]').click();
   await page.locator('[id="clickButton"]').click();
   await page.locator('[class="button-style"]').click();
+  // 5 Partial attribute
+
+  await page.locator('[role*="but"]').click();
+
+  // 6 by text content
+  await page.locator('text=CLICK ME').click();
+
+  // 7 combine selectors for precision, combined class and text -  find exact text match
+  await page.locator('.button-style:text("CLICK ME")').click();
+
+  // 8 Find elements containing specific text, has-text - doesn't have to be a perfect match
+  await page.locator('button:has-text("click m")').click();
+
+  // 9 Attribute and text combination
+  await page.locator('[data-action="increment"]:text("CLICK ME")').click();
+  // 10 Playwright locators - https://playwright.dev/docs/locators#locate-by-test-id
+  //get by text
+
+  await page.getByText('CLICK ME').click();
+
+  // 11 By role, regex, the i means it ignore case of words
+  await page.getByRole('button', { name: /click me/i }).click();
 
   await page.pause();
 });

@@ -34,7 +34,7 @@ test.describe('Learn assertion', () => {
     // 7. elements to be checked
     await page.goto(checkURL);
     await expect(page.locator('h3')).toHaveText('Checkboxes');
-    // Ways to mitigate items not lording/ for stability if build it statility fails
+    // 2 Ways to mitigate items not lording/ for stability if build it stylisticly fails
     await page.waitForTimeout(1000);
     await page.waitForLoadState('networkidle');
 
@@ -43,8 +43,6 @@ test.describe('Learn assertion', () => {
     // Returns locator to the n-th matching element. You can add the position
     await page.getByRole('checkbox').nth(0).check();
     await page.getByRole('checkbox').nth(1).uncheck();
-    await page.getByRole('checkbox').nth(1).check();
-    await page.getByRole('checkbox').nth(0).uncheck();
 
     await expect(page.getByRole('checkbox').nth(0)).toBeChecked();
     await expect(page.getByRole('checkbox').nth(1)).not.toBeChecked();
